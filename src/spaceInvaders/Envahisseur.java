@@ -1,4 +1,4 @@
-package spaceInvader;
+package spaceInvaders;
 
 public class Envahisseur {
 

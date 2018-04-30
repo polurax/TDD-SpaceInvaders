@@ -4,11 +4,11 @@ public class SpaceInvaders {
 
 	private int longueur;
     private int hauteur;
-
+    private Vaisseau vaisseau;
+    
     public SpaceInvaders(int longueur, int hauteur) {
-	   private this.longueur = longueur;
-	   private this.hauteur = hauteur;
-	   private Vaisseau vaisseau;
+	   this.longueur = longueur;
+	   this.hauteur = hauteur;
    }
     
     @Override
