@@ -1,4 +1,6 @@
-package spaceInvaders;
+package spaceInvaders; 
+
+import utils.HorsEspaceJeuException;
 
 public class SpaceInvaders {
 
@@ -34,7 +36,11 @@ public class SpaceInvaders {
 	}
     
     public void positionnerUnNouveauVaisseau(int x, int y) {
-        this.vaisseau = new Vaisseau(x, y);
+    	if (x >= this.longueur || x < 0 || y >= this.hauteur || y < 0){
+    		throw new HorsEspaceJeuException("Vous êtes en dehors de l'espace jeu");
+    	}else{
+    		this.vaisseau = new Vaisseau(x, y);
+    	}
 	}
 
 	public String recupererEspaceJeuDansChaineASCII() {
