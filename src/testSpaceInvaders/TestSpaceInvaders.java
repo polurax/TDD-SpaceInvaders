@@ -3,6 +3,8 @@ package testSpaceInvaders;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+import spaceInvaders.SpaceInvaders;
+
 public class TestSpaceInvaders {
 
 	@Test
