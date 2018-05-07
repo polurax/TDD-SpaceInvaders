@@ -36,11 +36,15 @@ public class SpaceInvaders {
 	}
     
     public void positionnerUnNouveauVaisseau(int x, int y) {
-    	if (x >= this.longueur || x < 0 || y >= this.hauteur || y < 0){
-    		throw new HorsEspaceJeuException("Vous êtes en dehors de l'espace jeu");
+    	if (!estDansEspaceJeu(x, y)){
+    		throw new HorsEspaceJeuException("La position du vaisseau est en dehors de l'espace jeu");
     	}else{
     		this.vaisseau = new Vaisseau(x, y);
     	}
+	}
+
+	public boolean estDansEspaceJeu(int x, int y) {
+		return x < this.longueur && x >= 0 && y < this.hauteur && y >= 0;
 	}
 
 	public String recupererEspaceJeuDansChaineASCII() {
@@ -58,5 +62,10 @@ public class SpaceInvaders {
 	@Override
 	public String toString() {
 		return recupererEspaceJeuDansChaineASCII();
+	}
+
+	public void deplacerVaisseauVersLaDroite() {
+		this.vaisseau.seDeplacerVersLaDroite();
+		
 	}
 }

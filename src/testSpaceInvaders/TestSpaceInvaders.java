@@ -3,15 +3,22 @@ package testSpaceInvaders;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import org.junit.Test;
+import org.junit.Before;
 
 import spaceInvaders.SpaceInvaders;
 import utils.HorsEspaceJeuException;
 
 public class TestSpaceInvaders {
 
+	private SpaceInvaders spaceinvaders;
+	
+	@Before
+    public void initialisation() {
+	    this.spaceinvaders = new SpaceInvaders(15, 10);
+    }
+	
 	@Test
 	public void test_AuDebut_JeuSpaceInvaderEstVide() {
-		SpaceInvaders spaceinvaders = new SpaceInvaders(15, 10);
 		assertEquals("" + "...............\n" 
 						+ "...............\n" 
 						+ "...............\n" 
@@ -26,7 +33,6 @@ public class TestSpaceInvaders {
 	
 	@Test
 	public void test_unNouveauVaisseauEstCorrectementPositionneDansEspaceJeu() {
-		SpaceInvaders spaceinvaders = new SpaceInvaders(15, 10);
 		spaceinvaders.positionnerUnNouveauVaisseau(7,9);
 		assertEquals("" + 
 		"...............\n" + 
@@ -43,8 +49,6 @@ public class TestSpaceInvaders {
 	
 	@Test
 	public void test_UnNouveauVaisseauPositionneHorsEspaceJeu_DoitLeverUneException() {
-		SpaceInvaders spaceinvaders = new SpaceInvaders(15, 10);
-		
 		try {
 			spaceinvaders.positionnerUnNouveauVaisseau(15,9);
 			fail("Position trop à droite : devrait déclencher une exception HorsEspaceJeuException");
@@ -72,6 +76,25 @@ public class TestSpaceInvaders {
 		} catch (final HorsEspaceJeuException e) {
 		}
 			
+	}
+	
+	@Test
+	public void test_VaisseauAvance_DeplacerVaisseauVersLaDroite() {
+		spaceinvaders.positionnerUnNouveauVaisseau(7,9);
+
+		spaceinvaders.deplacerVaisseauVersLaDroite();
+		
+		assertEquals("" + 
+		"...............\n" + 
+		"...............\n" +
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"........V......\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	}
 	
 	
