@@ -1,5 +1,6 @@
 package spaceInvaders; 
 
+import utils.DebordementEspaceJeuException;
 import utils.HorsEspaceJeuException;
 
 public class SpaceInvaders {
@@ -72,14 +73,17 @@ public class SpaceInvaders {
 		return vaisseau.abscisseLaPlusAGauche()>BORDURE_GAUCHE;
 	}
 
-	public void positionnerUnNouveauVaisseau(int largeur,int hauteur,int x, int y) {
-    	if (!estDansEspaceJeu(x, y)){
-    		throw new HorsEspaceJeuException("La position du vaisseau est en dehors de l'espace jeu");
-    	}else{
+	public void positionnerUnNouveauVaisseau(int largeur, int hauteur, int x, int y) {
+		if (!estDansEspaceJeu(x, y))
+			throw new HorsEspaceJeuException("La position du vaisseau est en dehors de l'espace jeu");
 
-    		vaisseau = new Vaisseau(largeur, hauteur);
-    		vaisseau.positionner(x, y);
-    	}
+		if ( !estDansEspaceJeu(x+largeur-1,y))
+			throw new DebordementEspaceJeuException("Le vaisseau déborde de l'espace jeu vers la droite à cause de sa longueur");
+		if (!estDansEspaceJeu(x,y-hauteur+1))
+			throw new DebordementEspaceJeuException("Le vaisseau déborde de l'espace jeu vers le bas à cause de sa hauteur");
+
+		vaisseau = new Vaisseau(largeur, hauteur);
+		vaisseau.positionner(x, y);
 	}
 	
 }
