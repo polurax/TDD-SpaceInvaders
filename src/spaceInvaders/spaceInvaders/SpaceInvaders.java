@@ -35,14 +35,6 @@ public class SpaceInvaders {
 	public boolean aUnVaisseau() {
 		return this.vaisseau!=null;
 	}
-    
-    public void positionnerUnNouveauVaisseau(int x, int y) {
-    	if (!estDansEspaceJeu(x, y)){
-    		throw new HorsEspaceJeuException("La position du vaisseau est en dehors de l'espace jeu");
-    	}else{
-    		this.vaisseau = new Vaisseau(x, y);
-    	}
-	}
 
 	public boolean estDansEspaceJeu(int x, int y) {
 		return x < this.longueur && x >= 0 && y < this.hauteur && y >= 0;
@@ -61,20 +53,33 @@ public class SpaceInvaders {
 	}
 
 	public void deplacerVaisseauVersLaDroite() {
-		if(vaisseau.abscisse()< this.bordureDroite()){
+		if(abscisseLaPlusADroite()){
 			this.vaisseau.seDeplacerVersLaDroite();
 		}
 	}
 
+	private boolean abscisseLaPlusADroite() {
+		return vaisseau.abscisseLaPlusAGauche()< longueur-1;
+	}
+
 	public void deplacerVaisseauVersLaGauche() {
-		if(vaisseau.abscisse()>BORDURE_GAUCHE){
+		if(abscisseLaPlusAGauche()){
 			this.vaisseau.seDeplacerVersLaGauche();
 		}	
 	}
-	
-	private int bordureDroite() {
-		return longueur-1;
+
+	private boolean abscisseLaPlusAGauche() {
+		return vaisseau.abscisseLaPlusAGauche()>BORDURE_GAUCHE;
 	}
-	
+
+	public void positionnerUnNouveauVaisseau(int largeur,int hauteur,int x, int y) {
+    	if (!estDansEspaceJeu(x, y)){
+    		throw new HorsEspaceJeuException("La position du vaisseau est en dehors de l'espace jeu");
+    	}else{
+
+    		vaisseau = new Vaisseau(largeur, hauteur);
+    		vaisseau.positionner(x, y);
+    	}
+	}
 	
 }
