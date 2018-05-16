@@ -65,7 +65,8 @@ public class SpaceInvaders {
 	}
 
 	public void deplacerVaisseauVersLaDroite() {
-		this.vaisseau.seDeplacerVersLaDroite();
-		
+		if(vaisseau.abscisse()< (longueur-1)){
+			this.vaisseau.seDeplacerVersLaDroite();
+		}
 	}
 }
