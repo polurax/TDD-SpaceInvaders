@@ -3,8 +3,7 @@ package spaceInvaders.spaceInvaders;
 public class Vaisseau {
 	
 	private Position origine;
-	private int largeur;
-	private int hauteur;
+	private Dimension dimension;
 	
 
 	public Vaisseau(int largeur, int hauteur) {
@@ -13,8 +12,7 @@ public class Vaisseau {
 	
 	public Vaisseau(int largeur, int hauteur, int x, int y) {
 		this.origine = new Position(x,y);
-		this.largeur=largeur;
-		this.hauteur=hauteur;
+		this.dimension = new Dimension(largeur,hauteur);
 	}
 	
 	public boolean occupeLaPosition(int x, int y) {
@@ -30,7 +28,7 @@ public class Vaisseau {
 	}
 
 	public int ordonneeLaPlusEnHaut() {
-		return ordonneeLaPlusEnBas()-this.hauteur+1;
+		return ordonneeLaPlusEnBas()-this.dimension.hauteur+1;
 	}
 
 	public boolean estAbscisseCouverte(int x) {
@@ -38,7 +36,7 @@ public class Vaisseau {
 	}
 
 	public int abscisseLaPlusADroite() {
-		return this.origine.abscisse()+this.largeur-1;
+		return this.origine.abscisse()+this.dimension.largeur-1;
 	}
 
 	public void seDeplacerVersLaDroite() {
@@ -58,4 +56,6 @@ public class Vaisseau {
 		this.origine.changerAbscisse(x);
 		this.origine.changerOrdonnee(y);
 	}
+	
+	
 }

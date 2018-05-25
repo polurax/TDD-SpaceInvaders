@@ -81,7 +81,7 @@ public void positionnerUnNouveauVaisseau(Dimension dimension, Position position)
 		if (!estDansEspaceJeu(x, y))
 			throw new HorsEspaceJeuException("La position du vaisseau est en dehors de l'espace jeu");
 
-		int longueurVaisseau = dimension.longueur();
+		int longueurVaisseau = dimension.largeur();
 		int hauteurVaisseau = dimension.hauteur();
 		
 		if (!estDansEspaceJeu(x + longueurVaisseau - 1, y))
