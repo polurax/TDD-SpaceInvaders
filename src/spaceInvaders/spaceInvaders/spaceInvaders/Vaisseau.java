@@ -41,7 +41,7 @@ public class Vaisseau {
 	}
 
 	public void seDeplacerVersLaDroite() {
-		this.origine.changerAbscisse(this.origine.abscisse()+1);
+		this.origine.changerAbscisse(this.origine.abscisse()+this.vitesse);
 	}
 
 	public int abscisseLaPlusAGauche() {
@@ -49,7 +49,7 @@ public class Vaisseau {
 	}
 
 	public void seDeplacerVersLaGauche() {
-		this.origine.changerAbscisse(this.origine.abscisse()-1);;
+		this.origine.changerAbscisse(this.origine.abscisse()-this.vitesse);
 		
 	}
 
