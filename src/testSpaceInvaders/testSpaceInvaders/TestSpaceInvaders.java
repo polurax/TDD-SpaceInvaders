@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 
-import spaceInvaders.spaceInvaders.Dimension;
-import spaceInvaders.spaceInvaders.Position;
-import spaceInvaders.spaceInvaders.SpaceInvaders;
+import spaceInvaders.Dimension;
+import spaceInvaders.Position;
+import spaceInvaders.SpaceInvaders;
 
 import org.junit.Before;
 
