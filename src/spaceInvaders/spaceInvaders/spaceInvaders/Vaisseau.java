@@ -4,6 +4,7 @@ public class Vaisseau {
 	
 	private Position origine;
 	private Dimension dimension;
+	private int vitesse;
 	
 
 	public Vaisseau(int largeur, int hauteur) {
