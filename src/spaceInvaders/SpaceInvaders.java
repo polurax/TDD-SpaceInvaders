@@ -1,4 +1,4 @@
-package spaceInvaders.spaceInvaders;
+package spaceInvaders;
 
 import utils.DebordementEspaceJeuException;
 import utils.HorsEspaceJeuException;

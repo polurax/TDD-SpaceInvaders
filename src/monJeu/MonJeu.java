@@ -40,7 +40,6 @@ public class MonJeu implements Jeu {
 
 	}
 
-	@Override
 	public boolean etreFini() {
 		// le jeu n'est jamais fini
 		return false;
