@@ -1,4 +1,4 @@
-package spaceInvaders.spaceInvaders;
+package spaceInvaders;
 
 public class Position {
 	private int x;

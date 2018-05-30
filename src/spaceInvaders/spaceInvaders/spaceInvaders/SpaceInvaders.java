@@ -1,4 +1,4 @@
-package spaceInvaders.spaceInvaders;
+package spaceInvaders;
 
 import utils.DebordementEspaceJeuException;
 import utils.HorsEspaceJeuException;
@@ -10,12 +10,12 @@ public class SpaceInvaders {
 	private static final char MARQUE_VIDE = '.';
 	private static final char MARQUE_VAISSEAU = 'V';
 
-	private int longueur;
+	private int largeur;
 	private int hauteur;
 	private Vaisseau vaisseau;
 
-	public SpaceInvaders(int longueur, int hauteur) {
-		this.longueur = longueur;
+	public SpaceInvaders(int largeur, int hauteur) {
+		this.largeur = largeur;
 		this.hauteur = hauteur;
 	}
 
@@ -38,14 +38,14 @@ public class SpaceInvaders {
 	}
 
 	public boolean estDansEspaceJeu(int x, int y) {
-		return x < this.longueur && x >= 0 && y < this.hauteur && y >= 0;
+		return x < this.largeur && x >= 0 && y < this.hauteur && y >= 0;
 	}
 
 	public String recupererEspaceJeuDansChaineASCII() {
 		StringBuilder espaceDeJeu = new StringBuilder();
 
 		for (int y = 0; y < hauteur; y++) {
-			for (int x = 0; x < longueur; x++) {
+			for (int x = 0; x < largeur; x++) {
 				espaceDeJeu.append(recupererMarqueDeLaPosition(x, y));
 			}
 			espaceDeJeu.append(MARQUE_FIN_DE_LIGNE);
@@ -54,21 +54,23 @@ public class SpaceInvaders {
 	}
 
 	public void deplacerVaisseauVersLaDroite() {
-		if (vaisseau.abscisseLaPlusADroite() < (longueur - 1)) {
+		if (this.abscisseLaPlusADroite()) {
 			vaisseau.seDeplacerVersLaDroite();
 			if (!estDansEspaceJeu(vaisseau.abscisseLaPlusADroite(), vaisseau.ordonneeLaPlusEnHaut())) {
-				vaisseau.positionner(longueur - vaisseau.largeur(), vaisseau.ordonneeLaPlusEnHaut());
+				vaisseau.positionner(this.largeur - vaisseau.largeur(), vaisseau.ordonneeLaPlusEnHaut()+1);
 			}
 		}
 	}
 
 	private boolean abscisseLaPlusADroite() {
-		return this.vaisseau.abscisseLaPlusADroite() < longueur - 1;
+		return this.vaisseau.abscisseLaPlusADroite() < largeur -1;
 	}
 
 	public void deplacerVaisseauVersLaGauche() {
-		if (abscisseLaPlusAGauche()) {
-			this.vaisseau.seDeplacerVersLaGauche();
+		if (0 < vaisseau.abscisseLaPlusAGauche())
+			vaisseau.seDeplacerVersLaGauche();
+		if (!estDansEspaceJeu(vaisseau.abscisseLaPlusAGauche(), vaisseau.ordonneeLaPlusEnHaut())) {
+			vaisseau.positionner(0, vaisseau.ordonneeLaPlusEnHaut()+1);
 		}
 	}
 
