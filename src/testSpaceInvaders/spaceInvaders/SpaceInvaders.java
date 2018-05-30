@@ -1,9 +1,12 @@
 package spaceInvaders;
 
+
+import moteurJeu.Commande;
+import moteurJeu.Jeu;
 import utils.DebordementEspaceJeuException;
 import utils.HorsEspaceJeuException;
 
-public class SpaceInvaders {
+public class SpaceInvaders implements Jeu{
 
 	private static final int BORDURE_GAUCHE = 0;
 	private static final char MARQUE_FIN_DE_LIGNE = '\n';
@@ -97,6 +100,16 @@ public class SpaceInvaders {
 					"Le vaisseau déborde de l'espace jeu vers le bas à cause de sa hauteur");
 
 		vaisseau = new Vaisseau(dimension,position,vitesse);
+	}
+
+	public void evoluer(Commande commandeUser) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean etreFini() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
