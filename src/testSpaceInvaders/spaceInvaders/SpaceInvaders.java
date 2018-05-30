@@ -102,8 +102,20 @@ public class SpaceInvaders implements Jeu{
 		vaisseau = new Vaisseau(dimension,position,vitesse);
 	}
 
+	public void initialiserJeu() {
+		Position positionVaisseau = new Position(this.largeur/2,this.hauteur-1);
+		Dimension dimensionVaisseau = new Dimension(Constante.VAISSEAU_LONGUEUR, Constante.VAISSEAU_HAUTEUR);
+		positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau, Constante.VAISSEAU_VITESSE);
+	 }
+	
+	
 	public void evoluer(Commande commandeUser) {
-		// TODO Auto-generated method stub
+
+		if(commandeUser.gauche){
+			this.deplacerVaisseauVersLaGauche();
+		}else if(commandeUser.droite){
+			this.deplacerVaisseauVersLaDroite();
+		}
 		
 	}
 
