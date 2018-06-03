@@ -5,6 +5,7 @@ import moteurJeu.Commande;
 import moteurJeu.Jeu;
 import utils.DebordementEspaceJeuException;
 import utils.HorsEspaceJeuException;
+import utils.MissileException;
 
 public class SpaceInvaders implements Jeu{
 
@@ -16,19 +17,20 @@ public class SpaceInvaders implements Jeu{
 	private int largeur;
 	private int hauteur;
 	private Vaisseau vaisseau;
+	private Missile missile;
 
 	public SpaceInvaders(int largeur, int hauteur) {
 		this.largeur = largeur;
 		this.hauteur = hauteur;
 	}
 
-	public char recupererMarqueDeLaPosition(int x, int y) {
+	private char recupererMarqueDeLaPosition(int x, int y) {
 		char marque;
-		if (this.aUnVaisseauQuiOccupeLaPosition(x, y)) {
-			marque = MARQUE_VAISSEAU;
-		} else {
-			marque = MARQUE_VIDE;
-		}
+		if (this.aUnVaisseauQuiOccupeLaPosition(x, y))
+			marque = Constante.MARQUE_VAISSEAU;
+		else if (this.aUnMissileQuiOccupeLaPosition(x, y))
+				marque = Constante.MARQUE_MISSILE;
+		else marque = Constante.MARQUE_VIDE;
 		return marque;
 	}
 
@@ -123,5 +125,23 @@ public class SpaceInvaders implements Jeu{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	public boolean aUnMissileQuiOccupeLaPosition(int x, int y) {
+		return this.aUnMissile() && this.missile.occupeLaPosition(x, y);
+	}
+
+	public boolean aUnMissile() {
+		return this.missile != null;
+	}
+
+	public void tirerUnMissile(Dimension dimension, int vitesse) {
+		if ((vaisseau.hauteur()+ dimension.hauteur()) > this.hauteur )
+			   throw new MissileException("Pas assez de hauteur libre entre le vaisseau et le haut de l'espace jeu pour tirer le missile");
+							
+		   this.missile = this.vaisseau.tirerUnMissile(dimension,vitesse);
+		
+	}
+	
+	
 
 }
