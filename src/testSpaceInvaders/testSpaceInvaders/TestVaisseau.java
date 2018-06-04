@@ -2,9 +2,9 @@ package testSpaceInvaders;
 
 import org.junit.Test;
 
-import spaceInvaders.Dimension;
-import spaceInvaders.Position;
-import spaceInvaders.Vaisseau;
+import model.Dimension;
+import model.Position;
+import model.Vaisseau;
 import utils.MissileException;
 
 public class TestVaisseau {

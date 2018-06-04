@@ -1,4 +1,4 @@
-package spaceInvaders;
+package model;
 
 
 import moteurJeu.Commande;

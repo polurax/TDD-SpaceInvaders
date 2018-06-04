@@ -1,4 +1,4 @@
-package spaceInvaders;
+package model;
 
 public enum Direction {
 	  

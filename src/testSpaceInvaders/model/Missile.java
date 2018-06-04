@@ -1,4 +1,4 @@
-package spaceInvaders;
+package model;
 
 public class Missile extends Sprite{
 

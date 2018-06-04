@@ -1,4 +1,4 @@
-package spaceInvaders;
+package model;
 
 public class Constante {
 	public static final int ESPACEJEU_LARGEUR = 150;

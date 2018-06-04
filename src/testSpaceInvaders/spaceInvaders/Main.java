@@ -1,7 +1,7 @@
-package moteurJeu;
+package spaceInvaders;
 
-import spaceInvaders.SpaceInvaders;
-import spaceInvaders.Constante;
+import model.Constante;
+import model.SpaceInvaders;
 
 public class Main {
 
