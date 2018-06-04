@@ -165,11 +165,15 @@ public class SpaceInvaders implements Jeu{
 	
 	public void deplacerEnvahisseur() {
 		if(this.envahisseur.getDeplacementEffectue().equals("GAUCHE")) {
-			this.envahisseur.origine.changerAbscisse(this.envahisseur.origine.abscisse()+1);
-			this.envahisseur.setDeplacementEffectue("DROITE");
+			if(this.estDansEspaceJeu(this.envahisseur.origine.abscisse()+this.envahisseur.vitesse, this.envahisseur.origine.ordonnee())) {
+				this.envahisseur.origine.changerAbscisse(this.envahisseur.origine.abscisse()+this.envahisseur.vitesse);
+				this.envahisseur.setDeplacementEffectue("DROITE");
+			}
 		}else if(this.envahisseur.getDeplacementEffectue().equals("DROITE")) {
-			this.envahisseur.origine.changerOrdonnee(this.envahisseur.origine.ordonnee()+1);
-			this.envahisseur.setDeplacementEffectue("BAS");
+			if(this.estDansEspaceJeu(this.envahisseur.origine.abscisse()-this.envahisseur.vitesse, this.envahisseur.origine.ordonnee())) {
+				this.envahisseur.origine.changerOrdonnee(this.envahisseur.origine.ordonnee()+this.envahisseur.vitesse);
+				this.envahisseur.setDeplacementEffectue("BAS");
+			}
 		}else {
 			this.envahisseur.origine.changerAbscisse(this.envahisseur.origine.abscisse()-1);
 			this.envahisseur.setDeplacementEffectue("GAUCHE");
