@@ -348,7 +348,7 @@ public class TestSpaceInvaders {
 		   spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(1,1),new Position(7,2), 1);
 		   spaceinvaders.deplacerEnvahisseur();
 		   spaceinvaders.deplacerEnvahisseur();
-
+		   
 	       assertEquals("" +
 	       "...............\n" + 
 	       ".......E.......\n" +
