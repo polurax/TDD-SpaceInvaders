@@ -26,11 +26,11 @@ public abstract class Sprite {
 	}
 
 	public int ordonneeLaPlusEnBas() {
-		return this.origine.ordonnee()-dimension.hauteur;
+		return this.origine.ordonnee()+dimension.hauteur;
 	}
 
 	public int ordonneeLaPlusEnHaut() {
-		return ordonneeLaPlusEnBas();
+		return this.origine.ordonnee();
 	}
 
 	public Position getOrigine() {
