@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 
+import model.Collision;
 import model.Dimension;
 import model.Position;
 import model.SpaceInvaders;
@@ -383,4 +384,16 @@ public class TestSpaceInvaders {
 	       "....VVVVVVV....\n" + 
 	       "....VVVVVVV....\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	   }
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
