@@ -26,11 +26,19 @@ public abstract class Sprite {
 	}
 
 	public int ordonneeLaPlusEnBas() {
-		return this.origine.ordonnee();
+		return this.origine.ordonnee()-dimension.hauteur;
 	}
 
 	public int ordonneeLaPlusEnHaut() {
-		return ordonneeLaPlusEnBas()-this.dimension.hauteur+1;
+		return ordonneeLaPlusEnBas();
+	}
+
+	public Position getOrigine() {
+		return origine;
+	}
+
+	public Dimension getDimension() {
+		return dimension;
 	}
 
 	public boolean estAbscisseCouverte(int x) {
@@ -38,7 +46,8 @@ public abstract class Sprite {
 	}
 
 	public int abscisseLaPlusADroite() {
-		return this.origine.abscisse()+this.dimension.largeur-1;
+		return this.origine.abscisse()+this.dimension.largeur;
+		
 	}
 
 

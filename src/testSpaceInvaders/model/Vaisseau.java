@@ -21,11 +21,11 @@ public class Vaisseau extends Sprite{
 		return new Missile(dimensionMissile, positionOrigineMissile, vitesseMissile);
 	}
 
-	private Position calculerLaPositionDeTirDuMissile(Dimension dimensionMissile) {
+	public Position calculerLaPositionDeTirDuMissile(Dimension dimensionMissile) {
 		int abscisseMilieuVaisseau = this.abscisseLaPlusAGauche() + (this.largeur() / 2);
 		int abscisseOrigineMissile = abscisseMilieuVaisseau - (dimensionMissile.largeur() / 2);
 
-		int ordonneeeOrigineMissile = this.ordonneeLaPlusEnHaut() - 1;
+		int ordonneeeOrigineMissile = this.ordonneeLaPlusEnHaut()+4;
 		Position positionOrigineMissile = new Position(abscisseOrigineMissile, ordonneeeOrigineMissile);
 		return positionOrigineMissile;
 	}

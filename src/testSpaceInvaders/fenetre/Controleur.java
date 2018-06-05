@@ -1,7 +1,8 @@
-package moteurJeu;
+package fenetre;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import model.Vaisseau;
 
 /**
  * classe qui represente un controleur en lien avec un KeyListener
@@ -19,19 +20,19 @@ public class Controleur implements KeyListener {
 	 * commande a retourner la difference avec la commandeencours vient du fait
 	 * qu'on veut memoriser une touche appuyee
 	 */
-	private  Commande commandeARetourner;
+	private Commande commandeARetourner;
 
 	/**
 	 * construction du controleur par defaut le controleur n'a pas de commande
 	 */
+
 	public Controleur() {
 		this.commandeEnCours = new Commande();
 		this.commandeARetourner = new Commande();
 	}
 
 	/**
-	 * quand on demande les commandes, le controleur retourne la commande en
-	 * cours
+	 * quand on demande les commandes, le controleur retourne la commande en cours
 	 * 
 	 * @return commande faite par le joueur
 	 */
@@ -41,59 +42,62 @@ public class Controleur implements KeyListener {
 		return (aRetourner);
 	}
 
-	
 	/**
 	 * met a jour les commandes en fonctions des touches appuyees
 	 */
 	public void keyPressed(KeyEvent e) {
 
-		switch (e.getKeyChar()) {
+		switch (e.getKeyCode()) {
 		// si on appuie sur 'q',commande joueur est gauche
-		case 'q':
+		case 81:
 			this.commandeEnCours.gauche = true;
 			this.commandeARetourner.gauche = true;
 			break;
 		// si on appuie sur 'd',commande joueur est droite
-		case 'd':
+		case 68:
 			this.commandeEnCours.droite = true;
 			this.commandeARetourner.droite = true;
 			break;
 		// si on appuie sur 'z',commande joueur est haut
-		case 'z':
+		case 90:
 			this.commandeEnCours.haut = true;
 			this.commandeARetourner.haut = true;
 			break;
 		// si on appuie sur 's',commande joueur est bas
-		case 's':
+		case 83:
 			this.commandeEnCours.bas = true;
 			this.commandeARetourner.bas = true;
 			break;
+		case 32:
+			this.commandeEnCours.space = true;
+			this.commandeARetourner.space = true;
+			break;
 		}
-
 	}
-
 
 	/**
 	 * met a jour les commandes quand le joueur relache une touche
 	 */
 	public void keyReleased(KeyEvent e) {
-		switch (e.getKeyChar()) {
-		case 'q':
+		switch (e.getKeyCode()) {
+		case 81:
 			this.commandeEnCours.gauche = false;
 			break;
-		case 'd':
+		case 68:
 			this.commandeEnCours.droite = false;
 			break;
-		case 'z':
+		case 90:
 			this.commandeEnCours.haut = false;
 			break;
-		case 's':
+		case 83:
 			this.commandeEnCours.bas = false;
+			break;
+		case 32:
+			this.commandeEnCours.space = false;
 			break;
 		}
 
 	}
-
 
 	/**
 	 * ne fait rien
