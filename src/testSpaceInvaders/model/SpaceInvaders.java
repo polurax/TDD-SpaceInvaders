@@ -217,7 +217,7 @@ public class SpaceInvaders implements Jeu{
 	}
 
 	public boolean etreFini() {
-		return false;
+		return collision.detecterCollision(missile, envahisseur);
 	}
 
 

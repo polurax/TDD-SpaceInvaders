@@ -97,4 +97,51 @@ public class TestCollision {
 	    assertEquals(true,collision.detecterCollision(spaceinvaders.getVaisseau(),spaceinvaders.getEnvahisseur()));
 	}
 	
+	
+	
+	@Test
+	public void test_DetecterFinDePartie_CollisionFrontale() {
+	
+		SpaceInvaders spaceinvaders = new SpaceInvaders(15, 10);
+		Collision collision = new Collision();
+		spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7,2),new Position(4,9), 1);
+		spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(1,1),new Position(7,5), 1);
+		
+		spaceinvaders.tirerUnMissile(new Dimension(3,3),1);
+		spaceinvaders.deplacerMissile();
+		
+	    assertEquals(true,spaceinvaders.etreFini());
+	}
+	
+	@Test
+	public void test_DetecterFinDePartie_CollisionSurLaGauche() {
+	
+		SpaceInvaders spaceinvaders = new SpaceInvaders(15, 10);
+		Collision collision = new Collision();
+		spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7,2),new Position(4,9), 1);
+		spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(1,1),new Position(6,5), 1);
+		
+		spaceinvaders.deplacerEnvahisseur();
+		spaceinvaders.tirerUnMissile(new Dimension(3,3),1);
+		spaceinvaders.deplacerMissile();
+		spaceinvaders.deplacerEnvahisseur();
+		
+	    assertEquals(true,spaceinvaders.etreFini());
+	}
+	
+	@Test
+	public void test_DetecterFinDePartie_CollisionSurLaDroite() {
+	
+		SpaceInvaders spaceinvaders = new SpaceInvaders(15, 10);
+		Collision collision = new Collision();
+		spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7,2),new Position(4,9), 1);
+		spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(1,1),new Position(9,5), 1);
+		
+		spaceinvaders.tirerUnMissile(new Dimension(3,3),1);
+		spaceinvaders.deplacerMissile();
+		spaceinvaders.deplacerEnvahisseur();
+		
+	    assertEquals(true,spaceinvaders.etreFini());
+	}
+	
 }
