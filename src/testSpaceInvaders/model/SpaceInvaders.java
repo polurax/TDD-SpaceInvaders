@@ -1,7 +1,7 @@
 package model;
 
 
-import fenetre.Commande;
+import moteurJeu.Commande;
 import utils.DebordementEspaceJeuException;
 import utils.HorsEspaceJeuException;
 import utils.MissileException;
@@ -206,7 +206,7 @@ public class SpaceInvaders{
 	}
 
 	public void initialiserJeu() {
-		Position positionVaisseau = new Position((this.largeur-Constante.VAISSEAU_LARGEUR)/2,this.hauteur-Constante.VAISSEAU_HAUTEUR*3);
+		Position positionVaisseau = new Position((this.largeur-Constante.VAISSEAU_LARGEUR)/2,this.hauteur-Constante.VAISSEAU_HAUTEUR);
 		Dimension dimensionVaisseau = new Dimension(Constante.VAISSEAU_LARGEUR, Constante.VAISSEAU_HAUTEUR);
 		positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau, Constante.VAISSEAU_VITESSE);
 		Position positionEnvahisseur = new Position(5,10);
@@ -233,7 +233,7 @@ public class SpaceInvaders{
 	public boolean etreFini() {
 		if(missile!=null) {
 			return collision.detecterCollision(missile, envahisseur);
-		}else if(collision.detecterCollision(envahisseur,vaisseau) ||envahisseur.origine.ordonnee()>hauteur-50){
+		}else if(collision.detecterCollision(envahisseur,vaisseau) ||envahisseur.origine.ordonnee()>hauteur){
 			messageFinPartie="Vous avez perdu";
 			return true;
 		}else {

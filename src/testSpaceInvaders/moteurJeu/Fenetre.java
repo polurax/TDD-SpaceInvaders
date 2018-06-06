@@ -1,4 +1,4 @@
-package fenetre;
+package moteurJeu;
 
 import java.awt.Dimension;
 import javax.swing.JFrame;
@@ -11,7 +11,7 @@ public class Fenetre extends JFrame{
 	private ContenuFenetre contenu;
 	
 	public Fenetre(SpaceInvaders spaceInvaders){
-		this.setSize(new Dimension(Constante.ESPACEJEU_LARGEUR+15,Constante.ESPACEJEU_HAUTEUR));
+		this.setSize(new Dimension(Constante.ESPACEJEU_LARGEUR+15,Constante.ESPACEJEU_HAUTEUR+40));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Space Invaders");
 		this.contenu=new ContenuFenetre(spaceInvaders);

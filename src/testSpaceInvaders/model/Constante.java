@@ -14,7 +14,7 @@ public class Constante {
 	
 	public static final int ENVAHISSEUR_LARGEUR = 15;
 	public static final int ENVAHISSEUR_HAUTEUR = 10;
-	public static final int ENVAHISSEUR_VITESSE = 15;
+	public static final int ENVAHISSEUR_VITESSE = 5;
 	
 	public static final char MARQUE_FIN_LIGNE = '\n';
 	public static final char MARQUE_VIDE = '.';

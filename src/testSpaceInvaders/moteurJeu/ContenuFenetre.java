@@ -1,4 +1,4 @@
-package fenetre;
+package moteurJeu;
 
 import java.awt.Color;
 import java.awt.Graphics;

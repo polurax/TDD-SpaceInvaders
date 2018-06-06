@@ -1,11 +1,11 @@
 package spaceInvaders;
 
-import fenetre.Controleur;
-import fenetre.Fenetre;
 import model.Constante;
 import model.Dimension;
 import model.Direction;
 import model.SpaceInvaders;
+import moteurJeu.Controleur;
+import moteurJeu.Fenetre;
 
 public class Main {
 
