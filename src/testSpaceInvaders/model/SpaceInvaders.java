@@ -24,7 +24,7 @@ public class SpaceInvaders{
 	public SpaceInvaders(int largeur, int hauteur) {
 		this.largeur = largeur;
 		this.hauteur = hauteur;
-		messageFinPartie="Vous avez gagner";
+		messageFinPartie="Vous avez gagné";
 	}
 
 	private char recupererMarqueDeLaPosition(int x, int y) {
@@ -180,7 +180,7 @@ public class SpaceInvaders{
 				this.envahisseur.origine.changerAbscisse(largeur-this.envahisseur.dimension.largeur);
 			}
 		}else if(this.envahisseur.getDeplacementEffectue().equals("BAS")){
-			this.envahisseur.origine.changerOrdonnee(this.envahisseur.origine.ordonnee()+this.envahisseur.vitesse);
+			this.envahisseur.origine.changerOrdonnee(this.envahisseur.origine.ordonnee()+10);
 			if(this.envahisseur.origine.getX()<50) {
 				this.envahisseur.setDeplacementEffectue("DROITE");
 			}else {
@@ -233,7 +233,7 @@ public class SpaceInvaders{
 	public boolean etreFini() {
 		if(missile!=null) {
 			return collision.detecterCollision(missile, envahisseur);
-		}else if(envahisseur.origine.ordonnee()>hauteur){
+		}else if(collision.detecterCollision(envahisseur,vaisseau) ||envahisseur.origine.ordonnee()>hauteur-50){
 			messageFinPartie="Vous avez perdu";
 			return true;
 		}else {
