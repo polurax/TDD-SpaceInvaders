@@ -2,15 +2,12 @@ package moteurJeu;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
 import javax.swing.JPanel;
-
 import model.Constante;
-import model.Dimension;
 import model.Position;
 import model.SpaceInvaders;
-import model.Vaisseau;
 
+@SuppressWarnings("serial")
 public class ContenuFenetre extends JPanel {
 
 	protected SpaceInvaders spaceInvaders;
@@ -42,7 +39,7 @@ public class ContenuFenetre extends JPanel {
 				g.fillRect(positionMissile.getX(), positionMissile.getY(), Constante.MISSILE_LARGEUR,
 						Constante.MISSILE_HAUTEUR);
 			}
-		}else {
+		} else {
 			g.drawString(spaceInvaders.getMessageFinPartie(), 5, 15);
 		}
 

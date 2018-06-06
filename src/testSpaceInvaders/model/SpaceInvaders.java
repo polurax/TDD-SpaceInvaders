@@ -1,15 +1,15 @@
 package model;
 
 
-import moteurJeu.Commande;
 import utils.DebordementEspaceJeuException;
 import utils.HorsEspaceJeuException;
 import utils.MissileException;
-
+@SuppressWarnings("unused")
 public class SpaceInvaders{
 
 	private static final int BORDURE_GAUCHE = 0;
 	private static final char MARQUE_FIN_DE_LIGNE = '\n';
+	
 	private static final char MARQUE_VIDE = '.';
 	private static final char MARQUE_VAISSEAU = 'V';
 

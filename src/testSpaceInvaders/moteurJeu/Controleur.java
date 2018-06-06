@@ -2,7 +2,6 @@ package moteurJeu;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import model.Vaisseau;
 
 /**
  * classe qui represente un controleur en lien avec un KeyListener
