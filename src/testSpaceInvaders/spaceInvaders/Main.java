@@ -33,7 +33,7 @@ public class Main {
 				spaceInvaders.deplacerMissile();
 			}
 			if(spaceInvaders.getEnvahisseur()!=null) {
-				spaceInvaders.deplacerEnvahisseur();
+				//spaceInvaders.deplacerEnvahisseur();
 			}
 			fenetre.getContenu().repaint();
 		}
